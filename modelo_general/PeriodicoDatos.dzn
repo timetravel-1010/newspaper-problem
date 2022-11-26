@@ -1,0 +1,12 @@
+% Archivo de Datos
+Temas = {Internacional, 
+					Nacional, 
+					Local, 
+					Deporte, 
+					Cultura,
+					Entretenimiento
+					};
+minPaginas = [5, 4, 2, 2, 1, 1];
+maxPaginas = [9, 7, 5, 4, 3, 10];
+promLectores = [1500, 2000, 1000, 1500, 750, 3000];
+p = 11;
