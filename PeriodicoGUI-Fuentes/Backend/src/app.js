@@ -15,17 +15,18 @@ const port = app.get('port')
 
 app.post('/api', (req, res) => {
   const {data} = req.body
+  let response = {}
 
   fs.writeFile('PeriodicoDatos.dzn', data, (err) => {
     if (err)
       console.log(err);
     else {
       console.log("File written successfully\n");
-      MinizincSolve("Gecode", "PeriodicoGenerico.mzn", "PeriodicoDatos.dzn")
+      response = MinizincSolve("Gecode", "PeriodicoGenerico.mzn", "PeriodicoDatos.dzn")
     }
   });
-
-  res.json(data)
+  console.log(respose)
+  res.json(response)
 })
 
 app.listen(port, () => {
@@ -33,13 +34,14 @@ app.listen(port, () => {
 })
 
 MinizincSolve = (solver, model, data ) =>{
-  const command = `minizinc --solver ${solver} ${model} ${data}`;
+  const command = `minizinc ${model} ${data} --solver ${solver}  --search-complete-msg "" --soln-sep ""`;
   exec(command, (error, stdout, stderr) =>  {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
       if (error !== null) {
         console.log('exec error: ' + error);
       }
+      return stdout
   });
 }
 

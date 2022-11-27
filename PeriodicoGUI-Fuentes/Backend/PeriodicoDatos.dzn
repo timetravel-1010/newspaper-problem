@@ -1,0 +1,11 @@
+Temas = {Internacional, 
+        Nacional, 
+        Local, 
+        Deporte, 
+        Cultura,
+        Entretenimiento
+        };
+    minPaginas = [1, 4, 2, 3, 2, 2];
+    maxPaginas = [2, 12, 4, 45, 4, 5];
+    promLectores = [123, 12, 41, 12, 43, 53];
+    p = 11; 
