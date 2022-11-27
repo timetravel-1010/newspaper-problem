@@ -1,0 +1,1 @@
+minizinc PeriodicoGenerico.mzn PeriodicoDatos.dzn --solver gecode --search-complete-msg "" --soln-sep ""
