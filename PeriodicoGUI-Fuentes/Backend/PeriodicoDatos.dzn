@@ -5,7 +5,7 @@ Temas = {Internacional,
         Cultura,
         Entretenimiento
         };
-    minPaginas = [1, 4, 2, 3, 2, 2];
-    maxPaginas = [2, 12, 4, 45, 4, 5];
-    promLectores = [123, 12, 41, 12, 43, 53];
+    minPaginas = [0, 1, 2, 4, 2, 3];
+    maxPaginas = [122, 2, 3, 45, 13, 5];
+    promLectores = [12, 3, 4, 34, 35, 1234];
     p = 11; 

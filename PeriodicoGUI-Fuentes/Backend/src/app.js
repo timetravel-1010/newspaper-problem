@@ -15,34 +15,41 @@ const port = app.get('port')
 
 app.post('/api', (req, res) => {
   const {data} = req.body
-  let response = {}
 
   fs.writeFile('PeriodicoDatos.dzn', data, (err) => {
     if (err)
       console.log(err);
     else {
       console.log("File written successfully\n");
-      response = MinizincSolve("Gecode", "PeriodicoGenerico.mzn", "PeriodicoDatos.dzn")
+      const command = `minizinc PeriodicoGenerico.mzn PeriodicoDatos.dzn --solver Gecode  --search-complete-msg "" --soln-sep ""`;
+      exec(command, (error, stdout, stderr) =>  {
+          console.log('stdout: ' + stdout);
+          console.log('stderr: ' + stderr);
+          if (error !== null) {
+            console.log('exec error: ' + error);
+          }
+          res.json(stdout)
+      });
     }
   });
-  console.log(respose)
-  res.json(response)
 })
 
 app.listen(port, () => {
   console.log(`Minizinc server listening on port ${port}`)
 })
 
-MinizincSolve = (solver, model, data ) =>{
+MinizincSolve = (solver, model, data ) => {
   const command = `minizinc ${model} ${data} --solver ${solver}  --search-complete-msg "" --soln-sep ""`;
+  let resp = "nada";
   exec(command, (error, stdout, stderr) =>  {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
       if (error !== null) {
         console.log('exec error: ' + error);
       }
-      return stdout
+      resp = stdout; //esto no sirve para guardar la respuesta.
   });
+  console.log("resp: ", resp)
 }
 
 
