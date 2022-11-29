@@ -19,9 +19,11 @@ constraint (sum(i in Temas)(cantidadPag[i])) <= p;
 % Maximizar numero de lectores.
 solve maximize sum(i in Temas)(cantidadPag[i]*promLectores[i]); 
 
+/*
 output ["{ "] ++
 				["temas: { "] ++ 
 			 ["\(i):\(cantidadPag[i]), " | i in Temas] ++
 			 ["}, "]
 			 ++ ["objective: \(_objective) }"];
-					
+	*/
+output [showJSON([show(i) | i in cantidadPag])];				
