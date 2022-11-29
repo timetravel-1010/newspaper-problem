@@ -1,1 +1,0 @@
-# proyecto-comp-y-optim

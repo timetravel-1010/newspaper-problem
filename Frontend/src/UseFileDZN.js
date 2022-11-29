@@ -1,4 +1,4 @@
-export default async function UseFileDZN({ data }) {
+export default async function UseFileDZN({ data, topics }) {
 
     async function postData(url = '', env = {}) {
         const response = await fetch(url, {
@@ -8,7 +8,6 @@ export default async function UseFileDZN({ data }) {
             credentials: 'same-origin', // include, *same-origin, omit
             headers: {
                 'Content-Type': 'application/json'
-                
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             redirect: 'follow', // manual, *follow, error
@@ -19,18 +18,33 @@ export default async function UseFileDZN({ data }) {
         return response.json();
     }
 
+    function parseNumReadersDZN(data, value){
+        let parseNumReaders = ""
+    
+        for (var key in data) {
+            if (key.includes(value)) {
+                parseNumReaders += data[key] + ","
+            }
+        }
 
-    const env = `Temas = {Internacional, 
-        Nacional, 
-        Local, 
-        Deporte, 
-        Cultura,
-        Entretenimiento
+        return parseNumReaders.substring(0, parseNumReaders.length -1)
+    }
+
+    function parseTopicsDZN(topics){
+        let parseTopics = ""
+        topics.map((item) => {
+            parseTopics += item + ","
+        })
+        return parseTopics.substring(0, parseTopics.length -1)
+    }
+
+    const env = `Temas = {${parseTopicsDZN(topics)}
         };
-    minPaginas = [${data['inter-min']}, ${data['nat-min']}, ${data['loc-min']}, ${data['spo-min']}, ${data['cul-min']}, ${data['ent-min']}];
-    maxPaginas = [${data['inter-max']}, ${data['nat-max']}, ${data['loc-max']}, ${data['spo-max']}, ${data['cul-max']}, ${data['ent-max']}];
-    promLectores = [${data['inter-pot']}, ${data['nat-pot']}, ${data['loc-pot']}, ${data['spo-pot']}, ${data['cul-pot']}, ${data['ent-pot']}];
+    minPaginas = [${parseNumReadersDZN(data, "min")}];
+    maxPaginas = [${parseNumReadersDZN(data, "max")}];
+    promLectores = [${parseNumReadersDZN(data, "pot")}];
     p = 11; `
-    const res = await postData('http://localhost:8000/api', { data: env })
-    console.log(res);
+    const response = await postData('http://localhost:8000/api', { data: env })
+
+    return response
 }
