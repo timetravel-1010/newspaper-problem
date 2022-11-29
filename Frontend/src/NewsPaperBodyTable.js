@@ -1,5 +1,4 @@
-export default function NewsPaperBodyTable({ item }) {
-
+export default function NewsPaperBodyTable({ item, handleRemoveTopic}) {
     return (
         <tr>
             <td>{item}</td>
@@ -32,6 +31,9 @@ export default function NewsPaperBodyTable({ item }) {
                     step="1"
                     defaultValue="0"
                 />
+            </td>
+            <td>
+                <button type="button" className="btn btn-outline-danger" onClick={()=>{handleRemoveTopic(item)}} >Eliminar</button>
             </td>
         </tr>
     )

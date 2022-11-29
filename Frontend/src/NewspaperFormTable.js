@@ -31,6 +31,10 @@ export default function NewspaperFormTable() {
         setTopics([...topics, newTopicRef.current.value])
     }
 
+    const handleRemoveTopic = (item) => {
+        setTopics(prev => prev.filter(topic => topic !== item ))
+    }
+
     return <>
         <div className="mt-4 d-flex justify-content-center">
             <h3>Newspaper Problem</h3>
@@ -53,19 +57,20 @@ export default function NewspaperFormTable() {
                 <thead>
                     <tr>
                         <th>Temas</th>
-                        <th>Min nb de paginas</th>
-                        <th>Max nb of pages</th>
-                        <th>Potential Readers -per page-</th>
+                        <th>Min num de página</th>
+                        <th>Max num de página</th>
+                        <th>Lectores Potenciales -por página-</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
                     {topics.map((item, i) => {
-                        return <NewsPaperBodyTable key={i} item={item} />
+                        return <NewsPaperBodyTable key={i} item={item} handleRemoveTopic={handleRemoveTopic}/>
                     })}
                 </tbody>
             </table>
 
-            <div className="d-flex justify-content-end">
+            <div className="d-flex justify-content-center">
                 <button type="submit" className="btn btn-primary">Solve Problem</button>
             </div>
 

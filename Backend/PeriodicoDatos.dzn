@@ -1,6 +1,6 @@
-Temas = {Internacional,Local,Deporte,Cultura,Entretenimiento
+Temas = {Local,Deporte,Cultura,Entretenimiento
         };
-    minPaginas = [0,0,0,0,0];
-    maxPaginas = [0,0,0,0,0];
-    promLectores = [0,0,0,0,0];
+    minPaginas = [0,0,0,0];
+    maxPaginas = [0,0,0,0];
+    promLectores = [0,0,0,0];
     p = 11; 
