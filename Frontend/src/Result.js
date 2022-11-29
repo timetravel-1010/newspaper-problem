@@ -8,15 +8,15 @@ export default function Result({response}) {
     useEffect(() => {
         resultadoRef.current.style.visibility = "hidden"
     }, []);
-
+    console.log("entra")
     if(Object.keys(response).length != 0) {
         resultadoRef.current.style.visibility = "visible"
+        //response = JSON.stringify(response)
+
         console.log(typeof(response))
         console.log(response)
-        //response = JSON.stringify(response)
-        //const obj = JSON.parse(response)
-        //console.log(obj)
-        //console.log("temas: ", obj.temas);
+        const obj = JSON.parse(response)
+        console.log("parsed: ", obj)
     }
 
     return (

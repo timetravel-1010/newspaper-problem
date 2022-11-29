@@ -43,7 +43,7 @@ export default async function UseFileDZN({ data, topics }) {
     minPaginas = [${parseNumReadersDZN(data, "min")}];
     maxPaginas = [${parseNumReadersDZN(data, "max")}];
     promLectores = [${parseNumReadersDZN(data, "pot")}];
-    p = 11; `
+    p = 10; `
     const response = await postData('http://localhost:8000/api', { data: env })
 
     return response
