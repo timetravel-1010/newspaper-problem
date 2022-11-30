@@ -13,9 +13,9 @@ export default async function UseFileDZN({ data, topics }) {
             redirect: 'follow', // manual, *follow, error
             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
             body: JSON.stringify(env) // body data type must match "Content-Type" header
-        });
+        })
 
-        return response.json();
+        return response.json()
     }
 
     function parseNumReadersDZN(data, value){
@@ -32,9 +32,11 @@ export default async function UseFileDZN({ data, topics }) {
 
     function parseTopicsDZN(topics){
         let parseTopics = ""
+        
         topics.map((item) => {
             parseTopics += item + ","
         })
+
         return parseTopics.substring(0, parseTopics.length -1)
     }
 

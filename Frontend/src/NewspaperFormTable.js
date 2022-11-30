@@ -76,6 +76,6 @@ export default function NewspaperFormTable() {
 
         </form>
 
-        <Result response={result} />
+        <Result response={result} topics = {topics} />
     </>
 }

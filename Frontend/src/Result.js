@@ -1,26 +1,44 @@
 import { useEffect, useRef } from "react";
 
-export default function Result({response}) {
+export default function Result({response, topics}) {
     const resultadoRef = useRef(null);
 
     useEffect(() => {
         resultadoRef.current.style.visibility = "hidden"
-    }, []);
-    console.log("entra")
-    if(Object.keys(response).length != 0) {
-        resultadoRef.current.style.visibility = "visible"
-        //response = JSON.stringify(response)
+    }, [])
 
-        console.log(typeof(response))
-        console.log(response)
-        const obj = JSON.parse(response)
-        console.log("parsed: ", obj)
+    const findValue = (str, key) =>{
+        const value = str.indexOf(key) + key.length + 3
+        return value
+    }
+
+    const parserResult = (response) =>{
+        const objective = "objective"
+
+        if(Object.keys(response).length != 0) {
+            resultadoRef.current.style.visibility = "visible"
+            const parseResponseString =  JSON.stringify(response) 
+            
+            let result = ""
+                        
+            topics.map((topic) => {
+                if(parseResponseString.includes(topic)){
+                    result += `${topic}: ${parseResponseString[findValue(parseResponseString, topic)]}, `                   
+                }
+            })
+
+            if(parseResponseString.includes(objective)){
+                result += `Potencial lectores: ${parseResponseString[findValue(parseResponseString, objective)]}.`             
+            }
+
+            return result
+        }    
     }
 
     return (
         <div ref={resultadoRef}>
             <div className="mt-4 alert alert-primary" role="alert">
-                Resultado: Aqui iran los resultados
+                <span>Resultados: {parserResult(response)}</span>
             </div>
         </div>
     )

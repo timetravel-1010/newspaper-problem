@@ -7,6 +7,6 @@ const root = createRoot(document.querySelector('#root'))
 
 root.render(
     <div className="container mt-4">
-        <App />
+        <App/>
     </div>
 )
