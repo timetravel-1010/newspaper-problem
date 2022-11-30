@@ -11,6 +11,7 @@ export default function Result({response}) {
 
     if(Object.keys(response).length != 0)
         resultadoRef.current.style.visibility = "visible"
+        
 
     return (
         <div ref={resultadoRef}>
@@ -19,6 +20,5 @@ export default function Result({response}) {
             </div>
         </div>
     )
-
 }
 

@@ -37,7 +37,4 @@ export default function NewsPaperBodyTable({ item, handleRemoveTopic}) {
             </td>
         </tr>
     )
-
-
-
 }
