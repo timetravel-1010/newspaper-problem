@@ -3,15 +3,19 @@ import { useEffect, useRef } from "react";
 export default function Result({response}) {
     const resultadoRef = useRef(null);
 
-    console.log(response);
-
     useEffect(() => {
         resultadoRef.current.style.visibility = "hidden"
     }, []);
-
-    if(Object.keys(response).length != 0)
+    console.log("entra")
+    if(Object.keys(response).length != 0) {
         resultadoRef.current.style.visibility = "visible"
-        
+        //response = JSON.stringify(response)
+
+        console.log(typeof(response))
+        console.log(response)
+        const obj = JSON.parse(response)
+        console.log("parsed: ", obj)
+    }
 
     return (
         <div ref={resultadoRef}>

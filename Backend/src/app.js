@@ -22,7 +22,7 @@ app.post('/api', (req, res) => {
       console.log(err);
     else {
       console.log("File written successfully\n");
-      const command = `minizinc --solver Gecode PeriodicoGenerico.mzn PeriodicoDatos.dzn`;
+      const command = `minizinc --solver Gecode PeriodicoGenerico.mzn PeriodicoDatos.dzn --search-complete-msg "" --soln-sep ""`;
       exec(command, (error, stdout, stderr) => {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
