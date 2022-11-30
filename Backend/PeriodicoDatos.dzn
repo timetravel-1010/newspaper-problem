@@ -1,0 +1,6 @@
+Temas = {International,Local,Sport,Culture,Salud
+        };
+    minPaginas = [11,21,18,7,5];
+    maxPaginas = [9,9,10,8,7];
+    promLectores = [6,6,5,4,6];
+    p = 10; 
