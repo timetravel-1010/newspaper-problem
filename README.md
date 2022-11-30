@@ -1,6 +1,6 @@
 # Setup
 Download [Node.js](https://nodejs.org/en/download/)
-and [MIniZinc](https://www.minizinc.org/software.html).
+and [MIniZinc](https://www.minizinc.org/software.html)
 
 Notes 
 
