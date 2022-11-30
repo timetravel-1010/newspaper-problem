@@ -1,7 +1,7 @@
 export default function NewsPaperBodyTable({ item, handleRemoveTopic}) {
     return (
         <tr>
-            <td>{item}</td>
+            <th scope="row">{item}</th>
             <td>
                 <input
                     name={`min-${item.toLowerCase()}`}

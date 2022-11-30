@@ -28,7 +28,7 @@ export default function Result({response, topics}) {
             })
 
             if(parseResponseString.includes(objective)){
-                result += `Potencial lectores: ${parseResponseString[findValue(parseResponseString, objective)]}.`             
+                result += `Potential readers: ${parseResponseString[findValue(parseResponseString, objective)]}.`             
             }
 
             return result
@@ -37,8 +37,8 @@ export default function Result({response, topics}) {
 
     return (
         <div ref={resultadoRef}>
-            <div className="mt-4 alert alert-primary" role="alert">
-                <span>Results: {parserResult(response)}</span>
+            <div className="mt-4 alert alert-dark" role="alert">
+                <span><strong>Results:</strong> {parserResult(response)}</span>
             </div>
         </div>
     )
