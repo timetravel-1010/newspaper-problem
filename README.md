@@ -1,8 +1,7 @@
-# Proyecto Complejidad y Optimización
-# Universidad del Valle
+# Proyecto Complejidad y Optimización - Universidad del Valle
 
 # Setup
-Download [Node.js](https://nodejs.org/en/download/).
+Download [Node.js](https://nodejs.org/en/download/)
 and [MIniZinc](https://www.minizinc.org/software.html).
 
 Notes 
