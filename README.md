@@ -12,7 +12,7 @@ C:\>setx PATH "%PATH%;C:\Program Files\MiniZinc"
 Run these followed commands:
 
 ``` bash
-# Install dependencies (only the first time)
+# Install dependencies backend and frontend (only the first time)
 npm install
 
 # Run Server Backend
