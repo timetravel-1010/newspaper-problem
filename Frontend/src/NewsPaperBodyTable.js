@@ -4,7 +4,7 @@ export default function NewsPaperBodyTable({ item, handleRemoveTopic}) {
             <td>{item}</td>
             <td>
                 <input
-                    name={`min-${item.slice(0, 3).toLowerCase()}`}
+                    name={`min-${item.toLowerCase()}`}
                     className="form-control"
                     type="number"
                     min="0"
@@ -14,7 +14,7 @@ export default function NewsPaperBodyTable({ item, handleRemoveTopic}) {
             </td>
             <td>
                 <input
-                    name={`max-${item.slice(0, 3).toLowerCase()}`}
+                    name={`max-${item.toLowerCase()}`}
                     className="form-control"
                     type="number"
                     min="0"
@@ -24,7 +24,7 @@ export default function NewsPaperBodyTable({ item, handleRemoveTopic}) {
             </td>
             <td>
                 <input
-                    name={`pot-${item.slice(0, 3).toLowerCase()}`}
+                    name={`pot-${item.toLowerCase()}`}
                     className="form-control"
                     type="number"
                     min="0"
@@ -33,7 +33,7 @@ export default function NewsPaperBodyTable({ item, handleRemoveTopic}) {
                 />
             </td>
             <td>
-                <button type="button" className="btn btn-outline-danger" onClick={()=>{handleRemoveTopic(item)}} >Eliminar</button>
+                <button type="button" className="btn btn-outline-danger" onClick={()=>{handleRemoveTopic(item)}}>Delete</button>
             </td>
         </tr>
     )

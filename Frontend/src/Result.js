@@ -38,7 +38,7 @@ export default function Result({response, topics}) {
     return (
         <div ref={resultadoRef}>
             <div className="mt-4 alert alert-primary" role="alert">
-                <span>Resultados: {parserResult(response)}</span>
+                <span>Results: {parserResult(response)}</span>
             </div>
         </div>
     )

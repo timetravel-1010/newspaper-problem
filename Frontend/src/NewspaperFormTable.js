@@ -11,7 +11,7 @@ export default function NewspaperFormTable() {
     const [result, setResult] = useState({})
 
     useEffect(() => {
-        setTopics(['Internacional', 'Local', 'Deporte', 'Cultura', 'Entretenimiento'])
+        setTopics(['International', 'Local', 'Sport', 'Culture'])
     }, []);
 
     const handleSubmit = async (e) => {
@@ -44,7 +44,7 @@ export default function NewspaperFormTable() {
                 <input name="new-topic" className="form-control " type="text" ref={newTopicRef} />
             </div>
             <div>
-                <button type="button" className="btn btn-success" onClick={handleAddTopic}>Agregar nuevo tema</button>
+                <button type="button" className="btn btn-success" onClick={handleAddTopic}>Add new topic</button>
             </div>
         </div>
 
@@ -56,11 +56,11 @@ export default function NewspaperFormTable() {
             <table className="table table-striped mt-4">
                 <thead>
                     <tr>
-                        <th>Temas</th>
-                        <th>Min num de página</th>
-                        <th>Max num de página</th>
-                        <th>Lectores Potenciales -por página-</th>
-                        <th>Acción</th>
+                        <th>Topics</th>
+                        <th>Min nb of page</th>
+                        <th>Max nb of page</th>
+                        <th>Potential readers -per page-</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
