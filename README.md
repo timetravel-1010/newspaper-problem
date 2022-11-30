@@ -9,7 +9,7 @@ Notes
 C:\>setx PATH "%PATH%;C:\Program Files\MiniZinc"
 ```
 
-Run this followed commands:
+Run these followed commands:
 
 ``` bash
 # Install dependencies (only the first time)
