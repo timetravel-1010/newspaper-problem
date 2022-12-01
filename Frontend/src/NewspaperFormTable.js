@@ -11,7 +11,7 @@ export default function NewspaperFormTable() {
     const [result, setResult] = useState({})
 
     useEffect(() => {
-        setTopics(['International', 'Local', 'Sport', 'Culture'])
+        setTopics(['International', 'National', 'Local', 'Sport', 'Culture'])
     }, []);
 
     const handleSubmit = async (e) => {
@@ -36,15 +36,13 @@ export default function NewspaperFormTable() {
     }
 
     return <>
-        <div className="mt-4 d-flex justify-content-center">
-            <h3>Newspaper Problem</h3>
-        </div>
-        <div className="d-flex justify-content-end">
+        <div className="mt-4 d-flex justify-content-end">
             <div>
-                <input name="new-topic" className="form-control " type="text" ref={newTopicRef} />
+                <input name="new-topic" className="form-control" type="text" ref={newTopicRef} required />
             </div>
+            
             <div>
-                <button type="button" className="btn btn-success" onClick={handleAddTopic}>Add new topic</button>
+                <button type="button" className="btn btn-secondary" onClick={handleAddTopic}>Add new topic</button>
             </div>
         </div>
 
@@ -54,13 +52,13 @@ export default function NewspaperFormTable() {
             ref={formElementRef}
         >
             <table className="table table-striped mt-4">
-                <thead>
-                    <tr>
-                        <th>Topics</th>
-                        <th>Min nb of page</th>
-                        <th>Max nb of page</th>
-                        <th>Potential readers -per page-</th>
-                        <th>Actions</th>
+                <thead style={{backgroundColor: "#212529"}}>
+                    <tr style={{color: "white"}}>
+                        <th  scope="col">Topics</th>
+                        <th scope="col">Min nb of page</th>
+                        <th scope="col">Max nb of page</th>
+                        <th scope="col">Potential readers -per page-</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,7 +69,7 @@ export default function NewspaperFormTable() {
             </table>
 
             <div className="d-flex justify-content-center">
-                <button type="submit" className="btn btn-primary">Solve Problem</button>
+                <button type="submit" className="btn btn-secondary">Solve Problem</button>
             </div>
 
         </form>
