@@ -3,42 +3,32 @@ import { useEffect, useRef } from "react";
 export default function Result({response, topics}) {
     const resultadoRef = useRef(null);
 
+    let parseJSON = {}
+    
+    if(Object.keys(response).length != 0) {
+        resultadoRef.current.style.visibility = "visible"
+        parseJSON = JSON.parse(response);
+    }   
+
     useEffect(() => {
         resultadoRef.current.style.visibility = "hidden"
     }, [])
 
-    const findValue = (str, key) =>{
-        const value = str.indexOf(key) + key.length + 3
-        return value
-    }
-
-    const parserResult = (response) =>{
-        const objective = "objective"
-
-        if(Object.keys(response).length != 0) {
-            resultadoRef.current.style.visibility = "visible"
-            const parseResponseString =  JSON.stringify(response) 
-            
-            let result = ""
-                        
+    const getTopicsResults = (topics, parseJSON) => {
+        let result = ""
+        if(Object.keys(response).length != 0){
             topics.map((topic) => {
-                if(parseResponseString.includes(topic)){
-                    result += `${topic}: ${parseResponseString[findValue(parseResponseString, topic)]}, `                   
-                }
+                result += `${topic}: ${parseJSON.temas[topic]} `      
             })
-
-            if(parseResponseString.includes(objective)){
-                result += `Potential readers: ${parseResponseString[findValue(parseResponseString, objective)]}.`             
-            }
-
-            return result
-        }    
-    }
+        }
+        return result
+    }   
 
     return (
         <div ref={resultadoRef}>
             <div className="mt-4 alert alert-dark" role="alert">
-                <span><strong>Results:</strong> {parserResult(response)}</span>
+                <span><strong>Results:</strong> {(parseJSON.objective === 0 ? "It could not include any topic " : getTopicsResults(topics, parseJSON))}</span>
+                <span><strong>Potential Readers:</strong> {parseJSON.objective}</span>
             </div>
         </div>
     )

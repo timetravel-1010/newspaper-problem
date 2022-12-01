@@ -11,7 +11,7 @@ export default function NewspaperFormTable() {
     const [result, setResult] = useState({})
 
     useEffect(() => {
-        setTopics(['International', 'Local', 'Sport', 'Culture'])
+        setTopics(['International', 'National', 'Local', 'Sport', 'Culture'])
     }, []);
 
     const handleSubmit = async (e) => {
