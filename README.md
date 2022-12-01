@@ -1,12 +1,18 @@
-# Proyecto Complejidad y Optimización
-# Universidad del Valle
+# Setup
+Download [Node.js](https://nodejs.org/en/download/)
+and [MIniZinc](https://www.minizinc.org/software.html)
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+Notes 
 
 ``` bash
-# Install dependencies (only the first time)
+# PATH environment variable windows
+C:\>setx PATH "%PATH%;C:\Program Files\MiniZinc"
+```
+
+Run these followed commands:
+
+``` bash
+# Install dependencies backend and frontend (only the first time)
 npm install
 
 # Run Server Backend
